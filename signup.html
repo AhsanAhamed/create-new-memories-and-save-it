@@ -447,6 +447,29 @@
                 mismatchText.style.color = 'green';
             }
         });
+
+         // Enable Submit Button if all fields are valid
+         const form = document.getElementById('signupForm');
+        form.addEventListener('input', function() {
+            const submitButton = document.getElementById('submitButton');
+            const isValid = form.checkValidity();
+            submitButton.disabled = !isValid;
+        });
+
+        // Form submission (AJAX for confirmation modal and redirection)
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show confirmation modal
+            var confirmationModal = new bootstrap.Modal(document.getElementById('confirmationModal'));
+            confirmationModal.show();
+
+            // Redirect to 'memories.html' after a delay (2 seconds)
+            setTimeout(function() {
+                window.location.href = "memories.html"; // Redirect to memories page
+            }, 2000); // Delay for a few seconds to show confirmation modal
+        });
+        
     </script>
 </body>
 </html>
