@@ -168,8 +168,8 @@
         <!-- Login Form -->
         <form id="loginForm">
             <div class="mb-3">
-                <label for="loginEmail" class="form-label">Email</label>
-                <input type="email" id="loginEmail" name="email" class="form-control" required />
+                <label for="loginUsername" class="form-label">Username</label>
+                <input type="text" id="loginUsername" name="username" class="form-control" required />
             </div>
             <div class="mb-3">
                 <label for="loginPassword" class="form-label">Password</label>
@@ -206,14 +206,14 @@
         document.getElementById('loginForm').addEventListener('submit', function (e) {
             e.preventDefault();
 
-            const loginEmail = document.getElementById('loginEmail').value;
+            const loginUsername = document.getElementById('loginUsername').value;
             const loginPassword = document.getElementById('loginPassword').value;
 
             // Retrieve stored user data from localStorage (simulating the data you stored during registration)
             const storedUser = JSON.parse(localStorage.getItem('user'));
 
             // Check if the entered credentials match the stored user data
-            if (storedUser && storedUser.email === loginEmail && storedUser.password === loginPassword) {
+            if (storedUser && storedUser.username === loginUsername && storedUser.password === loginPassword) {
                 // Save login session (e.g., using sessionStorage)
                 sessionStorage.setItem('loggedInUser', JSON.stringify(storedUser));
 
